@@ -10,14 +10,19 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    environment: PROD # ✅ This tells GitHub to use secrets from the PROD environment
+
     services:
       mongodb:
         image: mongo
         ports:
           - 27017:27017
 
-    env: # ✅ Inject SECRET from GitHub Actions secrets
+    env: # ✅ Inject secrets from the PROD environment
       SECRET: ${{ secrets.SECRET }}
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+      EXPIRATION: ${{ secrets.EXPIRATION }}
+      TEST_MONGO_DB: ${{ secrets.TEST_MONGO_DB }}
 
     steps:
     - uses: actions/checkout@v4
