@@ -16,6 +16,9 @@ jobs:
         ports:
           - 27017:27017
 
+    env: # ✅ Inject SECRET from GitHub Actions secrets
+      SECRET: ${{ secrets.SECRET }}
+
     steps:
     - uses: actions/checkout@v4
 
