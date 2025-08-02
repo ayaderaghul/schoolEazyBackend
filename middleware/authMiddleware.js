@@ -14,6 +14,11 @@ const protect = async(req,res,next) => {
             const decoded = jwt.verify(token, process.env.SECRET)
 
             req.student = await Student.findById(decoded.id).select('-password')
+            console.log('inside middleware student', req.student)
+
+            if (!req.student) {
+                return res.status(401).json({ error: 'Not authorized, user not found' });
+                }
             next()
         } catch(error) {
             console.error(error)

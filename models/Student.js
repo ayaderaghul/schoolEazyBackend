@@ -25,7 +25,10 @@ const studentSchema = new mongoose.Schema({
         minlength: [6, 'password must be at least 6 characters'],
         select: false
     },
-
+    score: {
+        type: Number,
+        default: 0
+    }
 
 }, {timestamp: true})
 

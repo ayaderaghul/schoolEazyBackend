@@ -12,13 +12,19 @@ connectDB()
 
 app.use(express.json())
 app.use(cors())
-
+app.use(cors({
+  origin: 'http://localhost:5173',
+  allowedHeaders: ['Authorization', 'Content-Type'],
+  credentials: true
+}));
 
 // app.get('/', (req,res) => {
 //     res.send('student auth api')
 // })
 
 app.use('/api/students', require('./routes/studentRoutes'))
+app.use('/api/questions', require('./routes/questionRoutes'))
+
 app.use(express.static('dist'))
 app.use((err, req, res, next) => {
     console.error(err.stack)

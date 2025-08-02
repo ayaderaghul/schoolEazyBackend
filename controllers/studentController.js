@@ -66,7 +66,8 @@ exports.loginStudent = async(req,res) => {
         id: student._id,
         username: student.username,
         email: student.email,
-      }
+        score: student.score
+    }
     });
 
   } catch (error) {
