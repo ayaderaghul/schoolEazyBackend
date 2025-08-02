@@ -19,7 +19,7 @@ app.get('/', (req,res) => {
 })
 
 app.use('/api/students', require('./routes/studentRoutes'))
-
+app.use(express.static('dist'))
 app.use((err, req, res, next) => {
     console.error(err.stack)
     res.status(500).send('something broke')
