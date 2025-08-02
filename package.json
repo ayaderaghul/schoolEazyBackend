@@ -4,10 +4,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
-"test": "cross-env NODE_ENV=test jest --runInBand",
-    "test:watch": "npm test -- --watch",
-    "test:coverage": "npm test -- --coverage"
-  },
+"test": "cross-env NODE_ENV=test jest",
+  "test:watch": "cross-env NODE_ENV=test jest --watch",
+  "test:ci": "cross-env NODE_ENV=test jest --ci --runInBand --detectOpenHandles"
+
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

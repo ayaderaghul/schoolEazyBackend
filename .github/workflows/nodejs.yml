@@ -27,11 +27,5 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Set up test environment
-      run: |
-        echo "NODE_ENV=test" > .env
-        echo "MONGO_URI=mongodb://localhost:27017/test_db" >> .env
-        echo "JWT_SECRET=testsecret" >> .env
-
     - name: Run tests
       run: npm test
