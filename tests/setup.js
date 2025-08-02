@@ -6,20 +6,16 @@ let mongoServer;
 beforeAll(async () => {
   mongoServer = await MongoMemoryServer.create();
   const mongoUri = mongoServer.getUri();
-  
-  // Remove deprecated options
   await mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
-});
+}, 30000);
 
 afterAll(async () => {
   await mongoose.disconnect();
   await mongoServer.stop();
-  // Close all open handles
-  await new Promise(resolve => setTimeout(resolve, 500));
-});
+}, 30000);
 
 afterEach(async () => {
   const collections = mongoose.connection.collections;

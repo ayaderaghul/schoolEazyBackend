@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles --forceExit",
+"test": "cross-env NODE_ENV=test jest --runInBand",
     "test:watch": "npm test -- --watch",
     "test:coverage": "npm test -- --coverage"
   },

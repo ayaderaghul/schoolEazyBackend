@@ -7,6 +7,7 @@ const studentSchema = new mongoose.Schema({
         type: String,
         require: [true, 'usename is required'],
         trim: true,
+        unique: true,
         maxlength: [50, 'username cannot be more than 50 characters']
     },
     email: {
