@@ -14,9 +14,9 @@ app.use(express.json())
 app.use(cors())
 
 
-app.get('/', (req,res) => {
-    res.send('student auth api')
-})
+// app.get('/', (req,res) => {
+//     res.send('student auth api')
+// })
 
 app.use('/api/students', require('./routes/studentRoutes'))
 app.use(express.static('dist'))
